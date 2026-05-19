@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="384" viewBox="0 0 512 384">
+  <rect width="512" height="384" fill="#1e1e36"/>
+  <rect x="156" y="142" width="200" height="4" rx="2" fill="#333355"/>
+  <rect x="196" y="156" width="120" height="4" rx="2" fill="#2a2a4a"/>
+  <text x="256" y="208" text-anchor="middle" fill="#44446a" font-family="system-ui, sans-serif" font-size="16" font-weight="500">Image unavailable</text>
+  <text x="256" y="230" text-anchor="middle" fill="#333355" font-family="system-ui, sans-serif" font-size="12">Check your connection</text>
+</svg>

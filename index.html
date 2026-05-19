@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <title>3D Canvas</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- Importmap must precede any module script -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+      "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Loading overlay — hidden after all textures resolve -->
+  <div id="loading-overlay">
+    <div class="spinner-wrap">
+      <div class="spinner"></div>
+      <p id="loading-text">Loading…</p>
+    </div>
+  </div>
+
+  <!-- Site header -->
+  <header id="site-header">
+    <span class="site-title">NÆR</span>
+  </header>
+
+  <!-- 3D canvas — full bleed -->
+  <canvas
+    id="canvas"
+    role="img"
+    aria-label="3D canvas with 10 image cards. Use mouse or keyboard to navigate."
+    tabindex="0"
+  ></canvas>
+
+  <!-- Navigation hint panel -->
+  <div id="controls-hint">
+    <span class="hint-mouse">Left drag: rotate · Right drag: pan · Scroll: zoom · Click card: select</span>
+    <span class="hint-keys"> · +/− zoom · Arrows pan · Home resets</span>
+    <details class="hint-touch">
+      <summary>Controls</summary>
+      <span>1 finger: rotate · 2 fingers: pan &amp; zoom · Tap card: select</span>
+    </details>
+  </div>
+
+  <!-- Tooltip shown on card hover / tap-select -->
+  <div id="card-tooltip" aria-hidden="true"></div>
+
+  <!-- Screen-reader live region for card selection announcements -->
+  <div id="sr-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Floating add button -->
+  <button id="btn-add" aria-label="Add card">&#43;</button>
+
+  <!-- Upload modal -->
+  <div id="upload-modal" hidden role="dialog" aria-modal="true" aria-labelledby="upload-modal-title">
+    <div id="upload-backdrop"></div>
+    <div id="upload-card">
+      <div id="upload-header">
+        <h2 id="upload-modal-title">Add Card</h2>
+        <button id="upload-close" aria-label="Close">&#x2715;</button>
+      </div>
+
+      <label id="drop-zone" for="file-input" tabindex="0" role="button" aria-describedby="drop-hint">
+        <img id="upload-preview" src="" alt="Preview" hidden />
+        <div id="drop-hint">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span>Drop an image here<br/>or click to browse</span>
+        </div>
+        <input id="file-input" type="file" accept="image/*" tabindex="-1" />
+      </label>
+
+      <div class="upload-field">
+        <label for="upload-title">Title <span class="field-optional">(optional)</span></label>
+        <input id="upload-title" type="text" maxlength="60" placeholder="Card title…" autocomplete="off" />
+      </div>
+
+      <div class="upload-field">
+        <label for="upload-note">Note <span class="field-required">*</span></label>
+        <textarea id="upload-note" maxlength="250" rows="3" placeholder="Write a short note…"></textarea>
+        <span id="note-counter" aria-live="polite">0 / 250</span>
+      </div>
+
+      <button id="upload-submit" disabled>Add to Canvas</button>
+    </div>
+  </div>
+
+  <!-- Card detail modal -->
+  <div id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-backdrop"></div>
+    <article id="modal-card">
+      <button id="modal-close" aria-label="Close">&#x2715;</button>
+      <img id="modal-img" src="" alt="" />
+      <div id="modal-accent-bar"></div>
+      <div id="modal-body">
+        <h2 id="modal-title"></h2>
+        <p id="modal-note"></p>
+      </div>
+    </article>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
