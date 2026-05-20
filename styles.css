@@ -3,7 +3,7 @@
 
 :root {
   --overlay-bg: rgba(10, 10, 20, 0.80);
-  --accent: #6ee7f7;
+  --accent: #ff4400;
   --radius: 8px;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-top: env(safe-area-inset-top, 0px);
@@ -402,7 +402,7 @@ html, body {
   max-height: calc(100dvh - 40px);
   overflow-y: auto;
   border-radius: 14px;
-  background: #1a1a2e;
+  background: #0000ff;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 32px 96px rgba(0, 0, 0, 0.7);
   animation: modal-in 0.2s ease;
@@ -420,7 +420,7 @@ html, body {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 14px 14px 0 0;
-  background: #111128;
+  background: #0000ff;
 }
 
 #modal-accent-bar {

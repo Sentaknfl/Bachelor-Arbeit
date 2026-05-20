@@ -48,7 +48,7 @@ function makeNoteTexture(noteText, title, accentColor) {
   const ctx = cv.getContext('2d');
 
   // Background
-  ctx.fillStyle = '#1a1a2e';
+  ctx.fillStyle = '#0000ff';
   ctx.fillRect(0, 0, W, H);
 
   // Accent top border — colour-coded per card
@@ -143,7 +143,7 @@ export function makeCardGroup(cardData, loadingManager) {
   // Backing plane — shows only from behind via BackSide, frames the card edges
   const backMesh = new THREE.Mesh(
     new THREE.PlaneGeometry(3.4, 4.2),
-    new THREE.MeshBasicMaterial({ color: 0x2a2a4a, side: THREE.BackSide }),
+    new THREE.MeshBasicMaterial({ color: 0x0000ff, side: THREE.BackSide }),
   );
   backMesh.position.z = -0.01;
   backMesh.name = 'back';
