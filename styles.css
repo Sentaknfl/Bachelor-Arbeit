@@ -3,7 +3,7 @@
 
 :root {
   --overlay-bg: rgba(10, 10, 20, 0.80);
-  --accent: #ff4400;
+  --accent: #6ee7f7;
   --radius: 8px;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-top: env(safe-area-inset-top, 0px);
