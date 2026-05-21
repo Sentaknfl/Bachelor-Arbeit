@@ -354,7 +354,7 @@ function submitCard() {
     id:          generateId(),
     title:       uploadTitle.value.trim() || 'Untitled',
     note:        uploadNote.value.trim(),
-    accentColor: ACCENT_COLORS[cardGroups.length % ACCENT_COLORS.length],
+    accentColor: '#ff4400',
     position:    findFreePosition(),
     imageUrl:    uploadedObjectUrl,
     fallbackUrl: '/assets/placeholders/fallback.svg',
@@ -396,10 +396,6 @@ function findFreePosition() {
   return { x: (Math.random() - 0.5) * 40, y: (Math.random() - 0.5) * 20, z: 0 };
 }
 
-const ACCENT_COLORS = [
-  '#6ee7f7','#f7c56e','#6ef7a0','#c56ef7','#f76e6e',
-  '#f76eb4','#6e9ff7','#f7f76e','#7ef76e','#f7956e',
-];
 
 // ── Resize ────────────────────────────────────────────────────────────────────
 function onResize() {
